@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enjoy Wardo - Tempat Nongkrong Asik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1600/400') no-repeat center center/cover;
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+
+        nav ul li a:hover {
+            color: #FFD700;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        section {
+            padding: 40px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+        }
+
+        .menu-section {
+            background: #fff;
+            padding: 20px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .menu-item {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: rgba(66, 61, 219, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+        }
+
+        .feature i {
+            font-size: 2em;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #007BFF;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .schedule-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: rgba(168, 247, 173, 0.1) 0px 1px 1px 0px inset, rgba(3, 3, 194, 0.25) 0px 50px 100px -20px, rgba(239, 41, 41, 0.3) 0px 30px 60px -30px;
+        }
+
+        .schedule-item:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .contact-button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 24px;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #0056b3;
+            transform: translateY(-3px);
+            display: inline-block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #333;
+            color: #fff;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 20px;
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Enjoy Wardo</h1>
+        <p class="tagline">Your Cozy Corner for Good Times</p>
+        <nav>
+            <ul>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#features">Fasilitas</a></li>
+                <li><a href="#schedule">Jadwal</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>Tentang Kami</h2>
+        <p>Welcome to Enjoy Wardo - tempat nongkrong paling a6 bro! Kami menyediakan tempat yang nyaman untuk kamu hangout, kerja, atau sekadar ngopi santai. Dengan suasana yang berisik cuk! dan pelayanan yang tidak terlalu ramah, Enjoy Wardo adalah tempat sempurna untuk menghabiskan waktu bersama teman atau me-time.</p>
+    </section>
+
+    <section id="menu">
+        <h2>Menu Favorit</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://media.istockphoto.com/id/1483497768/id/foto/uang-kertas-dan-rokok-euro.jpg?s=612x612&w=is&k=20&c=CF9HK9if1YO-0yXqla2Ekb1HfG7Hf-WWhDk16unNGOc=" alt="Cigarettes" 
+                     onerror="this.src='https://static.vecteezy.com/system/resources/previews/007/126/739/non_2x/simple-cigarette-pack-icon-free-vector.jpg';">
+                <h3>Cigarettes</h3>
+                <p>Start from IDR 20K</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/snacks.jpg" alt="Snacks & Drink"
+                     onerror="this.src='https://images.unsplash.com/photo-1621939514649-280e2ee25f60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8c25hY2tzfHx8fHx8MTY0Mjg2NDQwMQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300';">
+                <h3>Snacks</h3>
+                <p>Start from IDR 500</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/coffee.jpg" alt="Milk Coffee"
+                     onerror="this.src='https://images.unsplash.com/photo-1541167760496-1628856ab772?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8bWlsayUyMGNvZmZlZXx8fHx8fDE2NDI4NjQ0MDE&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300';">
+                <h3>Drink & Coffee</h3>
+                <p>Start from IDR 5K</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <h2>Fasilitas</h2>
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-wifi"></i>
+                <h3>Free WiFi</h3>
+                <p>Koneksi internet cepat</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-plug"></i>
+                <h3>Power Outlet</h3>
+                <p>Stop kontak di setiap meja</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-parking"></i>
+                <h3>Parking Area</h3>
+                <p>Parkir luas dan aman</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-music"></i>
+                <h3>Live Music & Film</h3>
+                <p>Setiap weekend</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule">
+        <h2>Jadwal Buka</h2>
+        <div class="schedule-grid">
+            <div class="schedule-item">
+                <h3>Senin - Kamis</h3>
+                <p>05.00 - 23.00 WIB</p>
+            </div>
+            <div class="schedule-item">
+                <h3>Jumat</h3>
+                <p>05.00 - 23.59 WIB</p>
+            </div>
+            <div class="schedule-item">
+                <h3>Sabtu</h3>
+                <p>00.00 - 23.59 WIB</p>
+            </div>
+            <div class="schedule-item">
+                <h3>Minggu</h3>
+                <p>00.00 - 23.00 WIB</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Kontak Kami</h2>
+        <p><i class="fas fa-envelope"></i> Email : 
+            <a href="mailto:EnjoyWardoEW@gmail.com">EnjoyWardoEW@gmail.com</a></p>
+        <p><i class="fas fa-phone"></i> Call : 0856-9767-6466</p>
+        <p><i class="fas fa-map-marker-alt"></i> Location : 
+            <a href="https://maps.app.goo.gl/V9Aqsr6eLN8DeVqW6">Jl. Ruby V Mustika Grande Blok F Burangkeng,Setu,Kab.Bekasi</a></p>
+        <a href="mailto:EnjoyWardoEW@gmail.com" class="contact-button">Reservasi Now</a>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=6285697676466" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com/ridho_ansori" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com/@Wardoooooooooooooo" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Enjoy Wardo Always Enjoy. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://whatsapp.com/" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com/ridho_ansori" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com/Wardoooooooooooooo" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
